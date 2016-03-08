@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -8,8 +8,13 @@ def status():
     Provides the current status of the address parsing service
     """
 
+    headers = request.headers
+
     status = {
-        "status": "DENIED!",
+        "status": "You made it!",
+        "meta": {
+            "headers" : [header for header in headers]
+        }
     }
 
     return jsonify(status)
