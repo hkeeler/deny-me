@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://hkeeler-sso-dev-ed.my.salesforce.com" validUntil="2026-02-27T00:01:53.217Z">
+   <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+         <ds:KeyInfo>
+            <ds:X509Data>
+               <ds:X509Certificate>MIIErDCCA5SgAwIBAgIOAVKpAVezAAAAADO9nNQwDQYJKoZIhvcNAQELBQAwgZAxKDAmBgNVBAMMH1NlbGZTaWduZWRDZXJ0XzAzRmViMjAxNl8yMTE5NDMxGDAWBgNVBAsMDzAwRDM2MDAwMDAwSzIzYTEXMBUGA1UECgwOU2FsZXNmb3JjZS5jb20xFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xCzAJBgNVBAgMAkNBMQwwCgYDVQQGEwNVU0EwHhcNMTYwMjAzMjExOTQzWhcNMTgwMjAzMTIwMDAwWjCBkDEoMCYGA1UEAwwfU2VsZlNpZ25lZENlcnRfMDNGZWIyMDE2XzIxMTk0MzEYMBYGA1UECwwPMDBEMzYwMDAwMDBLMjNhMRcwFQYDVQQKDA5TYWxlc2ZvcmNlLmNvbTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzELMAkGA1UECAwCQ0ExDDAKBgNVBAYTA1VTQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI5xszaYh2E5aw7p5hfhzEGHSaPou4z2eEuORcyGB7DwXFTSZ2EwHWYspHemwSAeSsOaocwkTxaPowGr9BAUYWioOG8yMh8TXa7J7MlcoT0cQGhlssnrYuWK/e6a9Xaa73XzpSrzsoAlaZXQBTrv1cpQ18E+kCRN3ED/VWafpo8d/7UiLNX0HgAev2gJEV0gVjxcLMRklVKc5iNh3EX+bfl8xJuGuvJ6yi5Ewl3xCO36WRyX2Uf3GwNyV8NXEaHHTJXmR33RFi4qH4u/BnZgoKEDuKpwFuThl5AVA7kpJ3NVEvs/K3C5CgbAwEW/HpJAr+xwLMOWVRykMVjG+9qG96ECAwEAAaOCAQAwgf0wHQYDVR0OBBYEFGa9CcHKW5hT6jW7E3AXH1LaBwtXMA8GA1UdEwEB/wQFMAMBAf8wgcoGA1UdIwSBwjCBv4AUZr0JwcpbmFPqNbsTcBcfUtoHC1ehgZakgZMwgZAxKDAmBgNVBAMMH1NlbGZTaWduZWRDZXJ0XzAzRmViMjAxNl8yMTE5NDMxGDAWBgNVBAsMDzAwRDM2MDAwMDAwSzIzYTEXMBUGA1UECgwOU2FsZXNmb3JjZS5jb20xFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xCzAJBgNVBAgMAkNBMQwwCgYDVQQGEwNVU0GCDgFSqQFXswAAAAAzvZzUMA0GCSqGSIb3DQEBCwUAA4IBAQAK7Y3HWEMByuOuk3ta4kob7Y6LycnwZqbt4DSjLY4f29PVAjihkjQm2+nhJNkuFzRWndHEcPrpCKPfiFSAg5puUVqCwuIrlbAF0PnrzPHauNk3I5eGruhpMdDh9UTuHbclm3s/BmYoyguzoPMWcFLXyNMVbCv9uTRFpxRREyKzX0IqeEsHYUlRr5wElbUrK/O1tkbuOU/uUHT0xsL8Uy6x9WoeIo33DADNHWDnvZAvYw74HKgg7LxsHCR68+zmIa1nLt1rt/MMneGedUq5rcDPutvcC6EcStvA3JGJJL2Tv06wbkMeWX73P5fut3hV74g9XEq3FHBLw8aI94x9WDZW</ds:X509Certificate>
+            </ds:X509Data>
+         </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hkeeler-sso-dev-ed.my.salesforce.com/idp/endpoint/HttpPost"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://hkeeler-sso-dev-ed.my.salesforce.com/idp/endpoint/HttpRedirect"/>
+   </md:IDPSSODescriptor>
+</md:EntityDescriptor>

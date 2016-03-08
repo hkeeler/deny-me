@@ -1,0 +1,17 @@
+api:
+  build: api
+  expose:
+    - "5000"
+
+nginx_shib:
+  build: nginx-shib
+  environment:
+    CLIENT_APP_HOSTNAME: '192.168.99.100'
+    CLIENT_APP_SCHEME: 'http'
+    CLIENT_APP_SECURE_PATH: '/app'
+    NGINX_PROXY_DESTINATION: 'http://api:5000'
+  ports:
+    - 80:80
+    - 443:443
+  links:
+    - api
