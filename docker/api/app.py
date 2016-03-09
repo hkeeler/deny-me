@@ -5,19 +5,30 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def status():
     """
-    Provides the current status of the address parsing service
+    Root resource with no authN or authZ required
     """
 
-    headers = request.headers
-
-    status = {
-        "status": "You made it!",
+    resp = {
+        "message": "So what!  Anybody can get here!",
         "meta": {
-            "headers" : [header for header in headers]
+            "headers" : [header for header in request.headers]
         }
     }
 
-    return jsonify(status)
+    return jsonify(resp)
+
+@app.route('/secure', methods=['GET'])
+def secure():
+    """
+    Requires authN, but not authZ
+    """
+
+    resp = {
+        "message": "Wow.  You must be...somebody!",
+        "meta": {
+            "headers": [header for header in request.headers]
+        }
+    }
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
