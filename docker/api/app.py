@@ -11,7 +11,7 @@ def build_response(request, message):
         }
     }
 
-    return jsonify(resp)
+    return resp
 
 
 username_header = 'Remote-User'
@@ -68,7 +68,7 @@ def status():
     """
     Root resource with no authN or authZ required
     """
-    return build_response(request, 'Big deal.  Anyone can get here!')
+    return jsonify(build_response(request, 'Big deal.  Anyone can get here!'))
 
 
 @app.route('/secure', methods=['GET'])
@@ -77,7 +77,7 @@ def secure():
     Requires authN, but not authZ
     """
     auth_n(request)
-    return build_response(request, "Huh.  You must be...somebody!")
+    return jsonify(build_response(request, "Huh.  You must be...somebody!"))
 
 @app.route('/admin', methods=['GET'])
 def admin():
@@ -85,14 +85,17 @@ def admin():
     Requires authN, AND authZ via specified headers
     """
     auth_z(request, authz_admin)
-    return build_response(request, "Wow!  A real life admin!?")
+    return jsonify(build_response(request, "Wow!  A real life admin!?"))
 
 
 def gen_error_json(message, code):
     """
     Builds standard JSON error message
     """
-    return jsonify({'error': message, 'statusCode': code}), code
+    resp = build_response(request, message)
+    resp['statusCode'] = code
+
+    return jsonify(resp), code
 
 # Register all Flask error handlers
 @app.errorhandler(404)
