@@ -48,6 +48,8 @@ def auth_n(request):
 
 def auth_z(request, role):
     username = auth_n(request)
+    method = request.method
+    url = request.url
 
     print('DEBUG: Authorization request {} {} by {} starting...'.format(method, url, username))
         
