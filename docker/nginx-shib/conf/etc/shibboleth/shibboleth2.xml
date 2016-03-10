@@ -23,7 +23,7 @@
         <RequestMap applicationId="client"
                     authType="shibboleth">
             <Host name="${CLIENT_APP_HOSTNAME:-your-app.localdomain.com}"
-                  requireSession="true">
+                  requireSession="false">
                 <Path name="${CLIENT_APP_SECURE_PATH:-/app}" />
             </Host>
         </RequestMap>
@@ -74,7 +74,7 @@
         Allows overriding of error template information/filenames. You can
         also add attributes with values that can be plugged into the templates.
         -->
-        <Errors supportContact="iskandar@hellomatter.com"
+        <Errors supportContact="hkeeler+sf-sso@gmail.com"
                 helpLocation="/about.html"
                 styleSheet="/shibboleth-sp/main.css"/>
 
