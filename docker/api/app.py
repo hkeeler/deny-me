@@ -18,9 +18,9 @@ username_header = 'Remote-User'
 authz_header = 'Employeetype'
 authz_admin = 'System Administrator'
 idp_header = 'Shib-Identity-Provider'
-valid_idps = set(
+valid_idps = set([
     'https://hkeeler-sso-dev-ed.my.salesforce.com',
-)
+])
 
 def auth_n(request):
     url = request.url
@@ -33,12 +33,12 @@ def auth_n(request):
         idp = request.headers[idp_header]
         if idp in valid_idps:
             print('DEBUG: Authentication request {} {} by {} successful.'.format(method, url, username))
+            return username
         else:
             print('ERROR: Authentication request {} {} by {} failed. IdP "{}" is not valid.  Must be one of : {}'.format(
                 method, url, username, idp, valid_idps))
 
-            return username
-
+            
     except KeyError:
         print('WARN:  Authentication request {} {} by {} failed.  IdP request header {} not present'.format(
             method, url, username, idp_header))
