@@ -79,7 +79,7 @@ def secure():
     auth_n(request)
     return jsonify(build_response(request, "Huh.  You must be...somebody!"))
 
-@app.route('/admin', methods=['GET'])
+@app.route('/secure/admin', methods=['GET'])
 def admin():
     """
     Requires authN, AND authZ via specified headers
