@@ -54,13 +54,19 @@ def auth_z(request, role):
     print('DEBUG: Authorization request {} {} by {} starting...'.format(method, url, username))
         
     try:
-        request.headers[authz_header] == role
-        print('DEBUG: Authorization request {} {} by {} successful.'.format(method, url, username))
+        authz_value = request.headers[authz_header]
 
-        return True
+        if authz_value == role:
+            print('DEBUG: Authorization request {} {} by {} successful.'.format(method, url, username))
+
+            return
+        else:
+            print('WARN:  Authorization request {} {} by {} failed.  User not in {} role.'.format(
+                method, url, username, authz_value))
+
     except KeyError:
-        print('WARN:  Authorization request {} {} by {} failed.  User not in {} role.'.format(
-            method, url, username, authz_value))
+        print('WARN:  Authorization request {} {} by {} failed.  Role header {} not present.'.format(
+            method, url, username, authz_header))
         
     return Forbidden('Not authorized to access this resource')
 
